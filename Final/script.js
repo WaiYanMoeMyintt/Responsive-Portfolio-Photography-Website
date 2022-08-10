@@ -36,4 +36,33 @@ var swiper = new Swiper(".mySwiper", {
      }
    }
  });
+ 
 
+ //for nav toggle btn 
+
+ const nav =  document.querySelector('.nav_links');
+ const openNavBtn = document.querySelector('#nav_toggle-open');
+ const closeNavBtn = document.querySelector("#nav_toggle-close");
+
+ function openNav(){
+   nav.style.display = "flex";
+   openNavBtn.style.display = "none";
+   closeNavBtn.style.display = "inline-block";
+ }
+ openNavBtn.addEventListener('click',openNav);
+
+ function closeNav(){
+   nav.style.display = "none";
+   openNavBtn.style.display = "inline-block";
+   closeNavBtn.style.display = "none";
+ }
+
+closeNavBtn.addEventListener('click',closeNav);
+
+
+if(document.body.clientWidth < 1024){
+  nav.querySelectorAll('li a').forEach(navLink=>{
+    navLink.addEventListener('click',closeNav);
+ });
+ 
+}
